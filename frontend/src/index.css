@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cream: #faf7f2;
+    --color-charcoal: #1a1815;
+    --color-gold: #c9a96e;
+    --color-gold-light: #e0c98f;
+    --color-gold-dark: #a8884e;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gold {
+    color: var(--color-gold);
+  }
+
+  .text-gold-light {
+    color: var(--color-gold-light);
+  }
+
+  .text-gold-dark {
+    color: var(--color-gold-dark);
+  }
+
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+
+  .bg-charcoal {
+    background-color: var(--color-charcoal);
+  }
+
+  .bg-gold {
+    background-color: var(--color-gold);
+  }
+
+  .border-gold {
+    border-color: var(--color-gold);
+  }
+
+  .border-gold-dark {
+    border-color: var(--color-gold-dark);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-gold text-white font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-charcoal hover:text-gold border border-gold;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-transparent text-gold font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold hover:text-white border border-gold;
+  }
+
+  .section-label {
+    @apply flex items-center gap-3 text-gold font-sans text-xs font-medium tracking-[0.3em] uppercase;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-light text-charcoal leading-[1.15];
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1815;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a96e;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e0c98f;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-out infinite alternate;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Input styling */
+.input-field {
+  @apply w-full bg-transparent border-b border-gold/40 py-3 px-0 text-white font-sans text-sm placeholder:text-white/40 focus:outline-none focus:border-gold transition-colors duration-300;
+}
+
+.input-field-dark {
+  @apply w-full bg-transparent border-b border-charcoal/20 py-3 px-0 text-charcoal font-sans text-sm placeholder:text-charcoal/40 focus:outline-none focus:border-gold transition-colors duration-300;
+}
