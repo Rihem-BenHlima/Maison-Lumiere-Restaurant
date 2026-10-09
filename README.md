@@ -34,8 +34,8 @@ The goal is to practise building a complete web app with a separate frontend, ba
 
 ```
 project/
-├── frontend/   🎨 React website (port 5173)
-└── backend/    ⚙️ Express API + MySQL (port 4000)
+├── frontend/   🎨 React website
+└── backend/    ⚙️ Express API + MySQL
 ```
 
 ## ✅ Requirements
@@ -53,41 +53,6 @@ npm install
 
 cd ../backend
 npm install
-```
-
-## 🔐 Configure the Environment
-
-Copy the example files to create your own `.env` files (skip this if they already exist):
-
-```bash
-cd backend
-cp .env.example .env
-
-cd ../frontend
-cp .env.example .env
-```
-
-On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp`.
-
-Then edit `backend/.env` and put in your own local MySQL settings:
-
-```env
-PORT=4000
-CORS_ORIGIN=http://localhost:5173
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=your_mysql_user
-DB_PASSWORD=your_mysql_password
-DB_NAME=restaurant_db
-```
-
-⚠️ The values that ship in `.env` are **mock placeholders**. The site cannot save reservations until you replace them with real credentials for your own MySQL server. Never commit your `.env` files. They are already git-ignored. 🙈
-
-The frontend reads the API address from `frontend/.env`:
-
-```env
-VITE_API_URL=http://localhost:4000
 ```
 
 ## 🗄️ Set Up the Database
@@ -112,49 +77,11 @@ cd backend
 npm run dev
 ```
 
-The API starts at http://localhost:4000 🟢
-
 **2️⃣ Frontend**
 
 ```bash
 cd frontend
 npm run dev
-```
-
-Open http://localhost:5173 in your browser. 🌐
-
-## 🧰 Useful Commands
-
-| Where | Command | What it does |
-| --- | --- | --- |
-| 🎨 `frontend` | `npm run dev` | Start the dev server |
-| 🎨 `frontend` | `npm run build` | Create a production build |
-| 🎨 `frontend` | `npm run preview` | Preview the production build |
-| 🎨 `frontend` | `npm run typecheck` | Check TypeScript types |
-| 🎨 `frontend` | `npm run lint` | Lint the code |
-| ⚙️ `backend` | `npm run dev` | Start the API with auto-reload |
-| ⚙️ `backend` | `npm start` | Start the API |
-| ⚙️ `backend` | `npm run db:init` | Create the database and tables |
-
-## 🔌 API
-
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| `GET` | `/api/health` | Health check ❤️ |
-| `POST` | `/api/reservations` | Save a reservation 📅 |
-
-Example request body for `POST /api/reservations`:
-
-```json
-{
-  "name": "Jane Doe",
-  "email": "jane@example.com",
-  "phone": "+216 20 123 456",
-  "party_size": 2,
-  "reservation_date": "2026-12-24",
-  "reservation_time": "19:00",
-  "special_requests": "Window seat, please"
-}
 ```
 
 ## 🛠️ Troubleshooting
